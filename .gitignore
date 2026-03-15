@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+
+# Environment
+.env
+
+# IDE
+.gemini/
+.vscode/
+
+# Screenshots / temp files
+*.png
+*.pyc
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Package lock (optional, large file)
+package-lock.json

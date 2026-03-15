@@ -1,0 +1,10 @@
+google-genai
+pyautogui
+Pillow
+python-dotenv
+pygetwindow
+speechrecognition
+pyttsx3
+pyaudio
+pytesseract
+plyer

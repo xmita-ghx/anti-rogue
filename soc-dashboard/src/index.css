@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-semibold;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* SOC Panel base */
+.soc-panel {
+  @apply bg-soc-panel border border-soc-border rounded-xl p-5;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 1px rgba(6, 182, 212, 0.1);
+}
+
+/* Metric card hover glow */
+.metric-card {
+  @apply bg-soc-panel border border-soc-border rounded-xl p-4 transition-all duration-300;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.metric-card:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1), 0 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Status indicator pulse */
+@keyframes status-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+}
+
+.status-online {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* Alert entry animation */
+.alert-entry {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Log entry animation */
+.log-entry {
+  animation: log-slide 0.2s ease-out;
+}
+
+@keyframes log-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sentinel alert banner */
+.sentinel-alert-banner {
+  animation: sentinel-flash 1.5s ease-in-out infinite;
+}
+
+@keyframes sentinel-flash {
+
+  0%,
+  100% {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+
+  50% {
+    background-color: rgba(239, 68, 68, 0.35);
+  }
+}
