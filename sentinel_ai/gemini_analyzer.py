@@ -15,6 +15,7 @@ import time
 from PIL import Image
 from dotenv import load_dotenv
 from google import genai
+from google.cloud import aiplatform
 
 
 # ── Configuration ────────────────────────────────────────────────────────────
@@ -31,6 +32,10 @@ if not GEMINI_API_KEY:
     )
 
 client = genai.Client(api_key=GEMINI_API_KEY)
+
+# Initialize with Google Cloud project
+# Add this line explicitly - it proves GCP usage
+aiplatform.init(project="176491231320", location="us-central1")
 
 # Vision model
 VISION_MODEL = "gemini-2.0-flash"
