@@ -1,0 +1,15 @@
+# cloud-run-deploy.yaml
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/176491231320/sentinel-ai', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/176491231320/sentinel-ai']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'sentinel-ai'
+      - '--image=gcr.io/176491231320/sentinel-ai'
+      - '--region=us-central1'
+      - '--platform=managed'
